@@ -128,6 +128,15 @@ export const ProjectDetailPage: React.FC = () => {
     setReaderDoc({ title, content: res.content });
   };
 
+  const activeTasks = (project?.tasks ?? []).filter((t) => t.status === 'RUNNING' || t.status === 'QUEUED');
+  const hasActiveTask = activeTasks.length > 0;
+
+  useEffect(() => {
+    if (!hasActiveTask) return;
+    const timer = setInterval(() => setNowMs(Date.now()), 1000);
+    return () => clearInterval(timer);
+  }, [hasActiveTask]);
+
   if (projectQuery.isLoading) return <div>Cargando temática...</div>;
   if (projectQuery.isError || !project) {
     return (
@@ -138,17 +147,9 @@ export const ProjectDetailPage: React.FC = () => {
   }
 
   const currentStage = viewedStage ?? project.editorialStage;
-  const activeTasks = project.tasks.filter((t) => t.status === 'RUNNING' || t.status === 'QUEUED');
-  const hasActiveTask = activeTasks.length > 0;
   const isActionBusy = hasActiveTask || triggerAction.isPending || reviseScript.isPending;
   const attentionTasks = project.tasks.filter((t) => t.status === 'FAILED' || t.status === 'INTERRUPTED');
   const latestProjectEvent = liveEvents.find((ev) => ev.projectId === project.id);
-
-  useEffect(() => {
-    if (!hasActiveTask) return;
-    const timer = setInterval(() => setNowMs(Date.now()), 1000);
-    return () => clearInterval(timer);
-  }, [hasActiveTask]);
 
   const formatElapsed = (iso: string | null): string => {
     if (!iso) return '0s';
