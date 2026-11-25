@@ -1,0 +1,1 @@
+{"root":["./src/App.test.tsx","./src/App.tsx","./src/main.tsx","./src/components/MarkdownViewer.tsx","./src/hooks/useSocketEvents.ts","./src/lib/api.ts","./src/pages/BrandPage.tsx","./src/pages/DashboardPage.tsx","./src/pages/EditorialPage.tsx","./src/pages/ProjectDetailPage.tsx","./src/store/ui.store.ts"],"version":"5.9.3"}

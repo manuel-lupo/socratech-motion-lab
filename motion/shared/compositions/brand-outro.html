@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="../styles/brand-system.css" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background-color: var(--st-ink);
+        }
+        #s3-stage {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+        }
+        #s3-safe {
+          position: absolute;
+          left: 124px;
+          top: 292px;
+          width: 646px;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          z-index: 4;
+        }
+        .s3-ring-badge {
+          position: relative;
+          width: 240px;
+          height: 240px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .s3-thinker-img {
+          width: 164px;
+          height: 168px;
+          display: block;
+          object-fit: contain;
+        }
+        .s3-divider-bar {
+          width: 230px;
+          height: 9px;
+          border-radius: var(--st-radius-divider);
+          background-color: var(--st-accent);
+          transform-origin: left center;
+        }
+        .s3-wordmark-char {
+          display: inline-block;
+          font-size: 84px;
+          font-weight: 700;
+          line-height: 1;
+          letter-spacing: 0.055em;
+          text-transform: uppercase;
+          color: var(--st-ink-fg);
+        }
+        .s3-slogan-line {
+          display: block;
+          font-size: 42px;
+          font-weight: 700;
+          line-height: 1.18;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+        }
+        .s3-cta-headline {
+          font-size: 44px;
+          font-weight: 700;
+          line-height: 1.15;
+          letter-spacing: -0.02em;
+          color: var(--st-ink-fg);
+          margin-bottom: 8px;
+        }
+        .s3-cta-idea {
+          color: var(--st-accent);
+          -webkit-text-stroke: 3px var(--st-accent-stroke-on-dark-alt);
+          paint-order: stroke fill;
+        }
+        #s3-watermark {
+          position: absolute;
+          right: -130px;
+          bottom: -140px;
+          width: 580px;
+          height: 590px;
+          opacity: 0.075;
+          pointer-events: none;
+          z-index: 1;
+        }
+      </style>
+
+      <div id="root" data-composition-id="scene-03-brand-outro" data-width="1080" data-height="1920">
+        <div id="s3-stage" class="st-stage st-theme-dark">
+          <svg
+            id="s3-bg-orbits"
+            class="st-orbit-bg"
+            viewBox="0 0 1080 1920"
+            data-layout-ignore="true"
+            aria-hidden="true"
+          >
+            <g id="s3-bg-arc-group">
+              <circle class="st-orbit-arc st-orbit-arc--outer" cx="1080" cy="40" r="360" />
+              <circle class="st-orbit-arc st-orbit-arc--inner" cx="1040" cy="0" r="250" />
+              <circle class="st-orbit-arc st-orbit-arc--bottom" cx="80" cy="1960" r="360" />
+              <circle id="s3-bg-sat" cx="944" cy="148" r="10" fill="#CEEF62" />
+            </g>
+          </svg>
+
+          <img
+            id="s3-watermark"
+            src="assets/brand/thinker-mark-lime-watermark.svg"
+            alt=""
+            data-layout-ignore="true"
+          />
+
+          <div id="s3-safe">
+            <div class="st-brand-outro" style="gap: 24px;" data-lockup-status="provisional">
+              <!-- Elemento independiente 1: Isotipo original + anillo orbital (#CEEF62) -->
+              <div id="s3-badge" class="s3-ring-badge">
+                <svg
+                  id="s3-ring-svg"
+                  class="st-thinker-ring"
+                  viewBox="0 0 240 240"
+                  data-layout-ignore="true"
+                  aria-hidden="true"
+                >
+                  <circle
+                    id="s3-ring-stroke"
+                    cx="120"
+                    cy="120"
+                    r="116"
+                    fill="none"
+                    stroke="#CEEF62"
+                    stroke-width="3"
+                    pathLength="100"
+                    stroke-dasharray="100"
+                    stroke-dashoffset="100"
+                  />
+                  <circle id="s3-ring-sat" cx="120" cy="4" r="7" fill="#CEEF62" />
+                </svg>
+
+                <img
+                  id="s3-thinker"
+                  class="s3-thinker-img"
+                  src="assets/brand/thinker-mark-dark-bg.svg"
+                  alt="Isotipo original Socratech"
+                />
+              </div>
+
+              <!-- Elemento independiente 2: Wordmark SOCRATECH -->
+              <div id="s3-wordmark" class="st-lockup-wordmark-row">
+                SOCRATECH
+              </div>
+
+              <!-- Separador oficial de tarjeta (#CEEF62, rx: 3px) -->
+              <div id="s3-divider" class="s3-divider-bar" data-layout-ignore="true"></div>
+
+              <!-- Elemento independiente 3: Eslogan en diálogo bicolor -->
+              <div id="s3-slogan" class="st-slogan-stack" style="gap: 8px;">
+                <span id="s3-slogan-1" class="s3-slogan-line st-slogan-line--primary" data-var-text="sloganLine1">
+                  ENTENDER PRIMERO.
+                </span>
+                <span id="s3-slogan-2" class="s3-slogan-line st-slogan-line--accent" data-var-text="sloganLine2">
+                  RESOLVER MEJOR.
+                </span>
+              </div>
+
+              <!-- Tarjeta de cierre institucional (Dorso tarjeta Oscura) -->
+              <div id="s3-contact-card" class="st-contact-card" style="width: 646px; padding: 22px 26px; gap: 10px;">
+                <div class="s3-cta-headline">
+                  Contanos tu <span class="s3-cta-idea">idea.</span>
+                </div>
+                <div class="st-contact-row" style="font-size: 29px;">hola@socratech.com.ar</div>
+                <div class="st-contact-row st-contact-row--muted" style="font-size: 29px;">@somos.socratech</div>
+                <div class="st-contact-row" style="font-size: 29px;">www.socratech.com.ar</div>
+              </div>
+
+              <!-- Identificación explícita de lockup provisional -->
+              <div id="s3-provisional-badge" class="st-provisional-note" data-var-text="provisionalNote">
+                LOCKUP PROVISIONAL · HITO 0B
+              </div>
+            </div>
+          </div>
+
+          <div class="st-corner-block" data-layout-ignore="true"></div>
+        </div>
+      </div>
+
+      <script>
+        (function buildScene03() {
+          const lib = window.SocratechBrand;
+          const eases = lib?.EASES || {
+            nobleReveal: "power4.out",
+            pagerCover: "power3.inOut",
+            structureSettle: "power2.out",
+            dialogueSpring: "back.out(1.2)"
+          };
+
+          const wordmarkEl = document.getElementById("s3-wordmark");
+          const vars = window.__hyperframes?.getVariables?.() || {};
+          if (wordmarkEl) {
+            wordmarkEl.dataset.stText = String(vars.brandName || "SOCRATECH");
+          }
+
+          const chars = lib?.splitWordmarkChars(wordmarkEl, document) || [];
+          for (const chEl of chars) {
+            chEl.className = "s3-wordmark-char";
+          }
+
+          const tl = gsap.timeline({ paused: true });
+
+          // Receta 1 — 0.00s..0.60s: Anillo orbital e Isotipo
+          tl.fromTo(
+            "#s3-ring-stroke",
+            { strokeDashoffset: 100 },
+            { strokeDashoffset: 0, duration: 0.6, ease: eases.structureSettle },
+            0
+          );
+          tl.fromTo(
+            "#s3-thinker",
+            { opacity: 0.25, scale: 0.92, filter: "blur(5px)" },
+            { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.65, ease: eases.nobleReveal },
+            0
+          );
+
+          // Rotación determinista del satélite alrededor del isotipo durante toda la escena (18s/rev -> 100deg en 5s)
+          tl.fromTo("#s3-ring-svg", { rotation: 0 }, { rotation: 100, duration: 5, ease: "none" }, 0);
+          tl.fromTo("#s3-bg-arc-group", { y: 0 }, { y: -12, duration: 5, ease: "none" }, 0);
+
+          // Receta 1 — 0.22s..0.85s: Nombre SOCRATECH letra a letra
+          if (chars.length > 0) {
+            tl.fromTo(
+              chars,
+              { opacity: 0.12, y: 12, filter: "blur(4px)" },
+              {
+                opacity: 1,
+                y: 0,
+                filter: "blur(0px)",
+                duration: 0.32,
+                stagger: 0.04,
+                ease: eases.nobleReveal
+              },
+              0.22
+            );
+          } else {
+            tl.fromTo(
+              "#s3-wordmark",
+              { opacity: 0, y: 16 },
+              { opacity: 1, y: 0, duration: 0.45, ease: eases.nobleReveal },
+              0.22
+            );
+          }
+
+          // Receta 1 — 0.58s..1.00s: Barra divisoria #CEEF62
+          tl.fromTo("#s3-divider", { scaleX: 0 }, { scaleX: 1, duration: 0.42, ease: eases.nobleReveal }, 0.58);
+
+          // Receta 1 — 0.72s..1.45s: Eslogan en diálogo lateral (-35px vs +35px)
+          tl.fromTo("#s3-slogan-1", { opacity: 0, x: -35 }, { opacity: 1, x: 0, duration: 0.5, ease: eases.dialogueSpring }, 0.72);
+          tl.fromTo("#s3-slogan-2", { opacity: 0, x: 35 }, { opacity: 1, x: 0, duration: 0.5, ease: eases.dialogueSpring }, 0.92);
+
+          // 1.15s..1.75s: Bloque institucional y etiqueta provisional; >= 3.2s lectura estable final
+          tl.fromTo("#s3-contact-card", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.45, ease: eases.structureSettle }, 1.15);
+          tl.fromTo("#s3-provisional-badge", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: eases.structureSettle }, 1.35);
+
+          window.__timelines = window.__timelines || {};
+          window.__timelines["scene-03-brand-outro"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

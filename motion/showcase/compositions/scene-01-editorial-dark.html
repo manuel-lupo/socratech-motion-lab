@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="../styles/brand-system.css" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background-color: var(--st-ink);
+        }
+        #s1-stage {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+        }
+        #s1-safe {
+          position: absolute;
+          left: 124px;
+          top: 292px;
+          width: 646px;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          z-index: 4;
+        }
+        .s1-orbit-wrap {
+          position: relative;
+          width: 260px;
+          height: 260px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .s1-thinker-img {
+          width: 150px;
+          height: 153px;
+          display: block;
+          object-fit: contain;
+        }
+        .s1-asterisk-sat {
+          position: absolute;
+          right: 4px;
+          bottom: 16px;
+          width: 38px;
+          height: 38px;
+        }
+        .s1-title-sm {
+          font-size: 72px;
+          font-weight: 700;
+          line-height: 1.06;
+          letter-spacing: -0.04em;
+        }
+        .s1-specs-stack {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+          width: 646px;
+        }
+        .s1-spec-card {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          padding: 18px 22px;
+          border-radius: var(--st-radius-panel);
+          border: 1.5px solid var(--st-ink-border);
+          background-color: rgba(251, 251, 244, 0.04);
+        }
+        .s1-swatch {
+          width: 26px;
+          height: 26px;
+          border-radius: var(--st-radius-pill);
+          flex-shrink: 0;
+        }
+        .s1-spec-text {
+          font-family: var(--st-font-mono);
+          font-size: 29px;
+          font-weight: 700;
+          color: var(--st-ink-fg-pure);
+          line-height: 1.25;
+        }
+        .s1-spec-sub {
+          color: var(--st-ink-muted);
+          font-weight: 400;
+        }
+        #s1-watermark {
+          position: absolute;
+          right: -130px;
+          bottom: -140px;
+          width: 580px;
+          height: 590px;
+          opacity: 0.075;
+          pointer-events: none;
+          z-index: 1;
+        }
+      </style>
+
+      <div id="root" data-composition-id="scene-01-editorial-dark" data-width="1080" data-height="1920">
+        <div id="s1-stage" class="st-stage st-theme-dark">
+          <svg
+            id="s1-bg-orbits"
+            class="st-orbit-bg"
+            viewBox="0 0 1080 1920"
+            data-layout-ignore="true"
+            aria-hidden="true"
+          >
+            <g id="s1-bg-arc-group">
+              <circle class="st-orbit-arc st-orbit-arc--outer" cx="1080" cy="40" r="360" />
+              <circle class="st-orbit-arc st-orbit-arc--inner" cx="1040" cy="0" r="250" />
+              <circle class="st-orbit-arc st-orbit-arc--bottom" cx="80" cy="1960" r="360" />
+              <circle cx="944" cy="148" r="10" fill="#CEEF62" />
+            </g>
+          </svg>
+
+          <img
+            id="s1-watermark"
+            src="assets/brand/thinker-mark-lime-watermark.svg"
+            alt=""
+            data-layout-ignore="true"
+          />
+
+          <div id="s1-safe">
+            <div id="s1-orbit-system" class="s1-orbit-wrap">
+              <svg
+                id="s1-orbit-outer"
+                class="st-orbit-ring-outer"
+                viewBox="0 0 300 300"
+                data-layout-ignore="true"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="150"
+                  cy="150"
+                  r="146"
+                  fill="none"
+                  stroke="#949EB9"
+                  stroke-opacity="0.38"
+                  stroke-width="2.5"
+                  stroke-dasharray="10 10"
+                />
+                <circle cx="150" cy="4" r="7" fill="#CEEF62" />
+              </svg>
+
+              <svg
+                id="s1-orbit-inner"
+                class="st-orbit-ring-inner"
+                viewBox="0 0 240 240"
+                data-layout-ignore="true"
+                aria-hidden="true"
+              >
+                <circle cx="120" cy="120" r="117" fill="none" stroke="#CEEF62" stroke-width="2.5" />
+                <circle cx="38" cy="204" r="5" fill="#949EB9" />
+              </svg>
+
+              <img
+                id="s1-thinker"
+                class="s1-thinker-img"
+                src="assets/brand/thinker-mark-dark-bg.svg"
+                alt="Isotipo original Socratech"
+              />
+
+              <svg
+                id="s1-asterisk-sat"
+                class="s1-asterisk-sat"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#CEEF62"
+                stroke-width="3"
+                stroke-linecap="round"
+                data-layout-ignore="true"
+                aria-hidden="true"
+              >
+                <path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5L4.2 16.5" />
+              </svg>
+            </div>
+
+            <div class="st-editorial-title">
+              <div id="s1-eyebrow" class="st-eyebrow-row">
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#CEEF62"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  data-layout-ignore="true"
+                  aria-hidden="true"
+                >
+                  <path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5L4.2 16.5" />
+                </svg>
+                <span>SOCRATECH · BRAND SYSTEM</span>
+              </div>
+
+              <h1 id="s1-title" class="s1-title-sm">
+                <span class="st-headline-line">Entender primero.</span>
+                <span class="st-headline-line st-display-lime-on-dark">Resolver mejor.</span>
+              </h1>
+
+              <div id="s1-divider" class="st-editorial-divider">
+                <div id="s1-divider-pill" class="st-divider-pill" data-layout-ignore="true"></div>
+                <div class="st-divider-hairline" data-layout-ignore="true"></div>
+              </div>
+
+              <p id="s1-lead" class="st-lead-copy">
+                Identidad visual en motion graphics sobre navy oficial.
+              </p>
+            </div>
+
+            <div class="s1-specs-stack">
+              <div id="s1-spec-a" class="s1-spec-card">
+                <span
+                  class="s1-swatch"
+                  style="background-color: #101A39; border: 2px solid #FBFBF4;"
+                  data-layout-ignore="true"
+                ></span>
+                <div class="s1-spec-text">
+                  #101A39 <span class="s1-spec-sub">Navy ·</span> #FBFBF4
+                  <span class="s1-spec-sub">Marfil</span>
+                </div>
+              </div>
+
+              <div id="s1-spec-b" class="s1-spec-card">
+                <span
+                  class="s1-swatch"
+                  style="background-color: #CEEF62; border: 2px solid #56607B;"
+                  data-layout-ignore="true"
+                ></span>
+                <div class="s1-spec-text">
+                  #CEEF62 <span class="s1-spec-sub">Lima · trazo</span> #56607B
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="st-corner-block" data-layout-ignore="true"></div>
+        </div>
+
+        <div
+          id="s1-curtain"
+          class="st-pager-curtain st-pager-curtain--light"
+          data-layout-ignore="true"
+        ></div>
+      </div>
+
+      <script>
+        (function buildScene01() {
+          const eases = window.SocratechBrand?.EASES || {
+            nobleReveal: "power4.out",
+            pagerCover: "power3.inOut",
+            structureSettle: "power2.out",
+            dialogueSpring: "back.out(1.2)"
+          };
+
+          const tl = gsap.timeline({ paused: true });
+
+          tl.fromTo(
+            "#s1-thinker",
+            { opacity: 0.78, scale: 0.94 },
+            { opacity: 1, scale: 1, duration: 0.55, ease: eases.nobleReveal },
+            0
+          );
+
+          // Rotación continua determinista 2:3 (20deg/s exterior, -13.33deg/s interior)
+          tl.fromTo("#s1-orbit-outer", { rotation: 0 }, { rotation: 100, duration: 5, ease: "none" }, 0);
+          tl.fromTo("#s1-orbit-inner", { rotation: 0 }, { rotation: -66.67, duration: 5, ease: "none" }, 0);
+          tl.fromTo("#s1-asterisk-sat", { rotation: 0 }, { rotation: 150, duration: 5, ease: "none" }, 0);
+
+          tl.fromTo(
+            "#s1-eyebrow",
+            { opacity: 0.9, y: 10 },
+            { opacity: 1, y: 0, duration: 0.4, ease: eases.nobleReveal },
+            0.04
+          );
+          tl.fromTo(
+            "#s1-title",
+            { opacity: 0.25, y: 20, filter: "blur(4px)" },
+            { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: eases.nobleReveal },
+            0.12
+          );
+          tl.fromTo(
+            "#s1-divider-pill",
+            { scaleX: 0 },
+            { scaleX: 1, duration: 0.4, ease: eases.nobleReveal },
+            0.4
+          );
+          tl.fromTo(
+            "#s1-lead",
+            { opacity: 0, y: 16 },
+            { opacity: 1, y: 0, duration: 0.45, ease: eases.structureSettle },
+            0.55
+          );
+          tl.fromTo(
+            "#s1-spec-a",
+            { opacity: 0, x: -35 },
+            { opacity: 1, x: 0, duration: 0.5, ease: eases.dialogueSpring },
+            0.72
+          );
+          tl.fromTo(
+            "#s1-spec-b",
+            { opacity: 0, x: 35 },
+            { opacity: 1, x: 0, duration: 0.5, ease: eases.dialogueSpring },
+            0.9
+          );
+
+          // Transición Pager Cover hacia Marfil #FBFBF4 (4.30s -> 5.00s)
+          // Paralaje del bloque de contenido acotado dentro del lienzo (top >= 82px)
+          tl.fromTo("#s1-curtain", { y: 1920 }, { y: 0, duration: 0.7, ease: eases.pagerCover }, 4.3);
+          tl.fromTo(
+            "#s1-safe",
+            { y: 0 },
+            { y: -210, duration: 0.7, ease: eases.pagerCover, immediateRender: false },
+            4.3
+          );
+          tl.fromTo(
+            "#s1-stage",
+            { filter: "brightness(1)" },
+            { filter: "brightness(0.88)", duration: 0.7, ease: eases.pagerCover },
+            4.3
+          );
+
+          window.__timelines = window.__timelines || {};
+          window.__timelines["scene-01-editorial-dark"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

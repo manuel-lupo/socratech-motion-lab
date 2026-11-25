@@ -1,0 +1,592 @@
+/**
+ * Socratech Motion Design System — Estilos y Componentes Reutilizables
+ * Basado exclusivamente en:
+ *   - docs/brand/BRAND_TOKENS.md (Paleta oficial tarjetas comerciales)
+ *   - docs/brand/BRAND_AUDIT.md (Proporciones lockup provisional e isotipo)
+ *   - docs/brand/MOTION_RECOMMENDATIONS.md (Recetas, opacidades y contraste)
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--st-font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   1. Superficies y Safe Zones (Vertical 1080x1920 por defecto)
+   ========================================================================== */
+
+.st-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--st-font-sans);
+}
+
+.st-theme-dark {
+  background-color: var(--st-ink);
+  color: var(--st-ink-fg);
+}
+
+.st-theme-light {
+  background-color: var(--st-bg-light);
+  color: var(--st-ink-text);
+}
+
+/* Zona segura vertical 9:16 compatible con TikTok / Reels / Shorts:
+   x: 120..888px (<= 780px debajo de y=840px), y: 288..1248px */
+.st-safe-frame {
+  position: absolute;
+  left: 124px;
+  top: 292px;
+  width: 646px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  z-index: 4;
+}
+
+.st-safe-frame--compact-rail {
+  width: 646px;
+}
+
+/* ==========================================================================
+   2. OrbitMotif — Círculos concéntricos, arcos de fondo y satélites
+   ========================================================================== */
+
+.st-orbit-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.st-orbit-arc {
+  fill: none;
+  stroke-width: var(--st-stroke-orbit-video);
+}
+
+.st-theme-dark .st-orbit-arc--outer {
+  stroke: var(--st-accent);
+  opacity: 0.18;
+}
+
+.st-theme-dark .st-orbit-arc--inner {
+  stroke: var(--st-accent);
+  opacity: 0.12;
+}
+
+.st-theme-dark .st-orbit-arc--bottom {
+  stroke: var(--st-accent);
+  opacity: 0.13;
+}
+
+.st-theme-light .st-orbit-arc--outer {
+  stroke: var(--st-ink);
+  opacity: 0.09;
+}
+
+.st-theme-light .st-orbit-arc--inner {
+  stroke: var(--st-ink);
+  opacity: 0.08;
+}
+
+.st-theme-light .st-orbit-arc--bottom {
+  stroke: var(--st-ink);
+  opacity: 0.1;
+}
+
+.st-orbit-system {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.st-orbit-ring-outer,
+.st-orbit-ring-inner {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.st-orbit-ring-inner {
+  inset: 10%;
+}
+
+/* ==========================================================================
+   3. ThinkerMark — Isotipo original intacto + polaridad + marca de agua 0.075
+   ========================================================================== */
+
+.st-thinker-mark {
+  display: block;
+  aspect-ratio: 580 / 590;
+}
+
+.st-thinker-badge {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.st-thinker-ring {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.st-watermark-layer {
+  position: absolute;
+  pointer-events: none;
+  opacity: var(--st-watermark-opacity);
+  z-index: 1;
+}
+
+/* ==========================================================================
+   4. EditorialTitle — Jerarquías, destacados lima con contorno y subrayados
+   ========================================================================== */
+
+.st-editorial-title {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.st-eyebrow-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 29px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.st-theme-dark .st-eyebrow-row {
+  color: var(--st-ink-muted);
+}
+
+.st-theme-light .st-eyebrow-row {
+  color: var(--st-muted-light);
+}
+
+.st-headline-lg {
+  font-size: 84px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.st-headline-md {
+  font-size: 68px;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.st-headline-line {
+  display: block;
+}
+
+/* Regla oficial: #CEEF62 en tipografía display con contorno exterior #56607B en oscuro */
+.st-display-lime-on-dark {
+  color: var(--st-accent);
+  -webkit-text-stroke: 3.5px var(--st-accent-stroke-on-dark);
+  paint-order: stroke fill;
+}
+
+/* Regla oficial: sobre claro #FBFBF4, relleno #CEEF62 con contorno #10204D */
+.st-display-lime-on-light {
+  color: var(--st-accent);
+  -webkit-text-stroke: 4px var(--st-accent-stroke-on-light);
+  paint-order: stroke fill;
+}
+
+/* Píldora de alto contraste garantizado sobre fondo claro (#101A39 sobre #CEEF62) */
+.st-accent-pill-on-light {
+  display: inline-block;
+  padding: 4px 18px 8px;
+  border-radius: 14px;
+  background-color: var(--st-accent);
+  color: var(--st-accent-fg);
+  border: 2.5px solid var(--st-ink-stroke);
+}
+
+.st-title-underline-wrap {
+  position: relative;
+  width: 240px;
+  height: 10px;
+}
+
+.st-title-underline {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--st-radius-divider);
+  background-color: var(--st-accent);
+  transform-origin: left center;
+}
+
+.st-theme-light .st-title-underline {
+  border: 1.5px solid var(--st-ink-stroke);
+}
+
+.st-lead-copy {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.st-theme-dark .st-lead-copy {
+  color: var(--st-ink-muted);
+}
+
+.st-theme-light .st-lead-copy {
+  color: var(--st-muted-light);
+}
+
+/* ==========================================================================
+   5. EditorialDivider — Barras de acento, líneas hairline, asteriscos, esquina
+   ========================================================================== */
+
+.st-editorial-divider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.st-divider-pill {
+  width: 112px;
+  height: 9px;
+  border-radius: var(--st-radius-divider);
+  background-color: var(--st-accent);
+  flex-shrink: 0;
+}
+
+.st-divider-hairline {
+  height: 1.5px;
+  flex: 1;
+}
+
+.st-theme-dark .st-divider-hairline {
+  background-color: var(--st-ink-border);
+}
+
+.st-theme-light .st-divider-hairline {
+  background-color: var(--st-border-light);
+}
+
+.st-asterisk-icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.st-corner-block {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 108px;
+  height: 64px;
+  background-color: var(--st-accent);
+  z-index: 3;
+}
+
+/* ==========================================================================
+   6. TechDiagram — Nodos Wilma Card, conectores animados y Consola Socrática
+   ========================================================================== */
+
+.st-tech-diagram {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+.st-wilma-node {
+  position: relative;
+  border-radius: var(--st-radius-modal);
+  padding: 20px 24px;
+}
+
+.st-theme-light .st-wilma-node {
+  background-color: var(--st-surface-card);
+}
+
+.st-theme-dark .st-wilma-node {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.st-wilma-outline-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.st-wilma-node-inner {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.st-node-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.st-node-tag {
+  font-family: var(--st-font-mono);
+  font-size: 29px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--st-muted-light);
+}
+
+.st-node-pill {
+  padding: 6px 18px;
+  border-radius: var(--st-radius-pill);
+  font-size: 28px;
+  font-weight: 700;
+  background-color: var(--st-accent);
+  color: var(--st-accent-fg);
+  border: 2px solid var(--st-ink-stroke);
+}
+
+.st-node-title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--st-ink-text);
+}
+
+.st-node-desc {
+  font-size: 29px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--st-muted-light);
+}
+
+.st-connector-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: 32px;
+  height: 34px;
+}
+
+.st-connector-label {
+  font-family: var(--st-font-mono);
+  font-size: 29px;
+  font-weight: 700;
+  color: var(--st-ink-stroke);
+}
+
+/* Consola Socrática */
+.st-console-panel {
+  border-radius: var(--st-radius-panel);
+  background-color: var(--st-ink);
+  border: 2px solid var(--st-ink-border);
+  overflow: hidden;
+}
+
+.st-console-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  border-bottom: 1.5px solid var(--st-ink-border);
+}
+
+.st-console-dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.st-console-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--st-radius-pill);
+  background-color: rgba(148, 158, 185, 0.35);
+}
+
+.st-console-dot--accent {
+  background-color: var(--st-accent);
+}
+
+.st-console-filename {
+  font-family: var(--st-font-mono);
+  font-size: 29px;
+  font-weight: 700;
+  color: var(--st-ink-muted);
+}
+
+.st-console-body {
+  padding: 18px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--st-font-mono);
+  font-size: 29px;
+  line-height: 1.35;
+}
+
+.st-code-comment {
+  color: var(--st-ink-muted);
+}
+
+.st-code-key {
+  color: var(--st-ink-fg-pure);
+  font-weight: 700;
+}
+
+.st-code-accent {
+  color: var(--st-accent);
+  font-weight: 700;
+}
+
+.st-code-cursor {
+  display: inline-block;
+  width: 16px;
+  height: 30px;
+  background-color: var(--st-accent);
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+/* ==========================================================================
+   7. BrandOutro — Lockup Provisional Configurable (3 elementos separados)
+   ========================================================================== */
+
+.st-brand-outro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.st-lockup-wordmark-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.st-wordmark-char {
+  display: inline-block;
+  font-size: 92px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: var(--st-ink-fg);
+}
+
+.st-slogan-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.st-slogan-line {
+  display: block;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.st-slogan-line--primary {
+  color: var(--st-ink-fg);
+}
+
+.st-slogan-line--accent {
+  color: var(--st-accent);
+  -webkit-text-stroke: 3.5px var(--st-accent-stroke-on-dark);
+  paint-order: stroke fill;
+}
+
+.st-contact-card {
+  width: 100%;
+  border-radius: var(--st-radius-panel);
+  border: 1.5px solid var(--st-ink-border);
+  background-color: rgba(251, 251, 244, 0.04);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.st-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 31px;
+  font-weight: 400;
+  color: var(--st-ink-fg-pure);
+}
+
+.st-contact-row--muted {
+  color: var(--st-ink-muted);
+}
+
+.st-provisional-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 20px;
+  border-radius: var(--st-radius-pill);
+  border: 1.5px solid var(--st-ink-border);
+  font-size: 29px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--st-ink-muted);
+}
+
+/* ==========================================================================
+   8. Pager Cover — Cortina de transición entre escenas
+   ========================================================================== */
+
+.st-pager-curtain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.st-pager-curtain--light {
+  background-color: var(--st-bg-light);
+}
+
+.st-pager-curtain--dark {
+  background-color: var(--st-ink);
+}

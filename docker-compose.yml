@@ -1,0 +1,32 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile.api
+    container_name: socratech-motion-api
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: 3001
+      DATABASE_URL: "file:/app/data/dev.db"
+      MAX_PARALLEL_PROJECTS: 2
+      WORKSPACES_ROOT: "/app/workspaces"
+      AGENT_TIMEOUT_MS: 120000
+    volumes:
+      - ./apps/api/prisma:/app/data
+      - ./workspaces:/app/workspaces
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile.web
+    container_name: socratech-motion-web
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: "http://localhost:3001/api"
+      VITE_WS_URL: "http://localhost:3001"
+    depends_on:
+      - api
+    restart: unless-stopped

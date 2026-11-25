@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+out/
+.vite/
+
+# Environment & Secrets (NEVER commit credentials or local .env)
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+credentials.json
+token.json
+
+# Local SQLite database & Prisma local artifacts
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+apps/api/prisma/*.db*
+
+# Local workspaces, renders & temporary media
+workspaces/
+motion/**/renders/
+motion/**/temp/
+motion/**/.hyperframes/artifacts/
+*.mp4
+*.mov
+*.wav
+*.mp3
+
+# Logs & OS
+logs/
+*.log
+.DS_Store
+Thumbs.db

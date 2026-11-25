@@ -1,0 +1,22 @@
+FROM node:24-alpine
+
+WORKDIR /app
+
+COPY package.json package-lock.json* tsconfig.base.json ./
+COPY packages/contracts/package.json packages/contracts/
+COPY packages/brand/package.json packages/brand/
+COPY apps/api/package.json apps/api/
+COPY apps/web/package.json apps/web/
+
+RUN npm ci --workspace=@socratech/contracts --workspace=@socratech/brand --workspace=@socratech/web
+
+COPY packages/contracts packages/contracts
+COPY packages/brand packages/brand
+COPY apps/web apps/web
+
+RUN npm run build --workspace=@socratech/contracts \
+  && npm run build --workspace=@socratech/brand
+
+EXPOSE 5173
+
+CMD ["npm", "run", "dev", "--workspace=@socratech/web", "--", "--host", "0.0.0.0"]

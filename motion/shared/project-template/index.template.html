@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es" data-resolution="{{RESOLUTION}}" data-video-id="{{VIDEO_ID}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width={{WIDTH}}, height={{HEIGHT}}" />
+    <title>{{VIDEO_ID}} — Socratech Motion Lab</title>
+    <link rel="stylesheet" href="styles/tokens.css" />
+    <link rel="stylesheet" href="styles/brand-system.css" />
+    <script src="vendor/gsap/gsap.min.js"></script>
+    <script src="vendor/gsap/CustomEase.min.js"></script>
+    <script src="components/components-library.js"></script>
+    <script src="generated/timing.resolved.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: {{WIDTH}}px;
+        height: {{HEIGHT}}px;
+        overflow: hidden;
+        background-color: var(--st-ink);
+      }
+      #root {
+        position: relative;
+        width: {{WIDTH}}px;
+        height: {{HEIGHT}}px;
+        overflow: hidden;
+        background-color: var(--st-ink);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="{{VIDEO_ID}}"
+      data-start="0"
+      data-duration="{{TOTAL_DURATION}}"
+      data-fps="{{FPS}}"
+      data-width="{{WIDTH}}"
+      data-height="{{HEIGHT}}"
+    >
+      <!-- ST:SCENES_START -->
+{{SCENES_HTML}}
+      <!-- ST:SCENES_END -->
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["{{VIDEO_ID}}"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

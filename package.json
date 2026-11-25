@@ -1,0 +1,22 @@
+{
+  "name": "socratech-motion-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Socratech Motion Lab — Plataforma local de producción audiovisual",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev --workspace=@socratech/api",
+    "dev:web": "npm run dev --workspace=@socratech/web",
+    "build": "npm run build --workspace=@socratech/contracts && npm run build --workspace=@socratech/brand && npm run build --workspace=@socratech/api && npm run build --workspace=@socratech/web",
+    "test": "npm run test --workspace=@socratech/api && npm run test --workspace=@socratech/web",
+    "prisma:generate": "npm run prisma:generate --workspace=@socratech/api",
+    "prisma:migrate": "npm run prisma:migrate --workspace=@socratech/api"
+  },
+  "engines": {
+    "node": ">=24.0.0",
+    "npm": ">=11.0.0"
+  }
+}

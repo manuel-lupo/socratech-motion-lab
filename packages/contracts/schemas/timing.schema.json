@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "socratech-motion-lab/timing.schema.json",
+  "title": "Socratech Motion Lab — Timing plan (Visual-First)",
+  "description": "Única fuente de verdad temporal de un video. No contiene campos de audio: la ausencia de audio es un estado válido. Ver docs/production/TIMING_PLAN.md.",
+  "type": "object",
+  "required": ["schemaVersion", "videoId", "revision", "status", "format", "totalDuration", "scenes"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": "1.0" },
+    "videoId": { "type": "string", "pattern": "^[0-9]{3}-[a-z0-9-]+$" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "status": {
+      "enum": ["planned", "visual-in-production", "visual-approved", "voiceover-recorded", "audio-integrated", "final"]
+    },
+    "format": {
+      "type": "object",
+      "required": ["width", "height", "fps"],
+      "additionalProperties": false,
+      "properties": {
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "fps": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "totalDuration": {
+      "type": "object",
+      "required": ["target", "min", "max"],
+      "additionalProperties": false,
+      "properties": {
+        "target": { "type": "number", "exclusiveMinimum": 0 },
+        "min": { "type": "number", "exclusiveMinimum": 0 },
+        "max": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "scenes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/scene" } },
+    "changelog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["revision", "date", "change"],
+        "additionalProperties": false,
+        "properties": {
+          "revision": { "type": "integer", "minimum": 1 },
+          "date": { "type": "string" },
+          "change": { "type": "string" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "scene": {
+      "type": "object",
+      "required": ["id", "order", "system", "narrativeFunction", "duration"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
+        "order": { "type": "integer", "minimum": 1 },
+        "system": { "enum": ["A", "B", "A>B"] },
+        "narrativeFunction": { "type": "string" },
+        "duration": {
+          "type": "object",
+          "required": ["mode", "target", "min", "max"],
+          "additionalProperties": false,
+          "properties": {
+            "mode": { "enum": ["fixed", "flexible"] },
+            "target": { "type": "number", "exclusiveMinimum": 0 },
+            "min": { "type": "number", "exclusiveMinimum": 0 },
+            "max": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        },
+        "transitionOut": {
+          "type": "object",
+          "required": ["type", "duration"],
+          "additionalProperties": false,
+          "properties": {
+            "type": { "enum": ["none", "cut", "match-cut", "zoom-out", "transform", "pager-cover", "fade"] },
+            "duration": { "type": "number", "minimum": 0 }
+          }
+        },
+        "syncPoints": { "type": "array", "items": { "$ref": "#/$defs/syncPoint" } },
+        "readingMoments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "label", "minHold"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string" },
+              "label": { "type": "string" },
+              "minHold": { "type": "number", "exclusiveMinimum": 0 }
+            }
+          }
+        },
+        "constraints": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": { "minHoldSeconds": { "type": "number", "exclusiveMinimum": 0 } }
+        },
+        "dependsOn": { "type": "array", "items": { "type": "string" } },
+        "scriptBlocks": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "syncPoint": {
+      "type": "object",
+      "required": ["id", "label", "at"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "label": { "type": "string" },
+        "span": { "type": "number", "exclusiveMinimum": 0 },
+        "at": {
+          "type": "object",
+          "required": ["anchor", "value"],
+          "additionalProperties": false,
+          "properties": {
+            "anchor": { "enum": ["start", "end", "ratio"] },
+            "value": { "type": "number", "minimum": 0 }
+          }
+        }
+      }
+    }
+  }
+}

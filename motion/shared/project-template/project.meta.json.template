@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "videoId": "{{VIDEO_ID}}",
+  "status": "active",
+  "contentPath": "content/videos/{{VIDEO_ID}}",
+  "timingPath": "content/videos/{{VIDEO_ID}}/timing.json",
+  "engine": "hyperframes",
+  "cliVersion": "0.9.91"
+}

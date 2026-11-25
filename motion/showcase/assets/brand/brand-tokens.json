@@ -1,0 +1,222 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "brand": "Socratech",
+    "sourceOfTruth": "docs/brand/BRAND_TOKENS.md",
+    "auditDate": "2026-11-24",
+    "defaultTheme": "cards-official",
+    "notes": [
+      "Paleta prioritaria oficial: tarjetas comerciales exportadas de Figma (01..04 *.svg).",
+      "Paleta web (#071F64, #218487, #F4F5F0) conservada exclusivamente como referencia legacy/histórica en themes.webLegacy.",
+      "El lockup completo (isotipo + SOCRATECH + eslogan) es provisional y configurable."
+    ]
+  },
+  "themes": {
+    "cardsOfficial": {
+      "id": "cards-official",
+      "isDefault": true,
+      "colors": {
+        "navyBg": "#101A39",
+        "navyText": "#121D42",
+        "navyStroke": "#10204D",
+        "ivoryBg": "#FBFBF4",
+        "limeAccent": "#CEEF62",
+        "slateLight": "#949EB9",
+        "slateDark": "#56607B",
+        "white": "#FFFFFF",
+        "destructive": "#C0392B"
+      },
+      "semanticRoles": {
+        "darkSurface": {
+          "background": "#101A39",
+          "foreground": "#FBFBF4",
+          "foregroundPure": "#FFFFFF",
+          "muted": "#949EB9",
+          "borderUi": "rgba(148, 158, 185, 0.28)",
+          "accent": "#CEEF62",
+          "accentForeground": "#101A39",
+          "accentDisplayStroke": "#56607B",
+          "accentDisplayStrokeAlt": "#949EB9",
+          "thinkerMarkFill": "#FBFBF4",
+          "thinkerRingStroke": "#CEEF62",
+          "watermarkFill": "#CEEF62"
+        },
+        "lightSurface": {
+          "background": "#FBFBF4",
+          "cardSurface": "#FFFFFF",
+          "foreground": "#121D42",
+          "strokeInk": "#10204D",
+          "muted": "#56607B",
+          "borderUi": "rgba(16, 26, 57, 0.14)",
+          "accent": "#CEEF62",
+          "accentForeground": "#101A39",
+          "accentDisplayStroke": "#10204D",
+          "accentDisplayRule": "Sobre fondo claro #FBFBF4, nunca usar #CEEF62 sin soporte para texto fino. En tipografía display usar siempre relleno #CEEF62 con contorno exterior #10204D. En bloques sólidos (barra divisoria, bloque esquina, píldoras) acompañar texto con #101A39.",
+          "thinkerMarkFill": "#101A39",
+          "thinkerRingStroke": "#101A39",
+          "watermarkFill": "#101A39"
+        }
+      },
+      "opacities": {
+        "orbitDarkOuter": 0.18,
+        "orbitDarkInner": 0.12,
+        "orbitDarkBottom": 0.13,
+        "orbitLightOuter": 0.09,
+        "orbitLightInner": 0.08,
+        "orbitLightBottom": 0.10,
+        "watermark": 0.075
+      },
+      "surfaceTreatments": {
+        "darkOrbitOuterRgba": "rgba(206, 239, 98, 0.18)",
+        "darkOrbitInnerRgba": "rgba(206, 239, 98, 0.12)",
+        "darkOrbitBottomRgba": "rgba(206, 239, 98, 0.13)",
+        "lightOrbitOuterRgba": "rgba(16, 26, 57, 0.09)",
+        "lightOrbitInnerRgba": "rgba(16, 26, 57, 0.08)",
+        "lightOrbitBottomRgba": "rgba(16, 26, 57, 0.10)",
+        "consoleHeaderDots": [
+          "rgba(148, 158, 185, 0.35)",
+          "rgba(148, 158, 185, 0.35)",
+          "#CEEF62"
+        ]
+      }
+    },
+    "webLegacy": {
+      "id": "web-legacy",
+      "isDefault": false,
+      "status": "legacy-historical-reference",
+      "colors": {
+        "ink": "#071F64",
+        "inkForeground": "#F4F5F0",
+        "inkMuted": "#9FB0DD",
+        "inkBorder": "#24387A",
+        "background": "#F4F5F0",
+        "secondary": "#E4E9F5",
+        "mutedForeground": "#4B5A86",
+        "accent": "#218487",
+        "accentDark": "#0E6668",
+        "accentForeground": "#FFFFFF",
+        "border": "#CFD6E8",
+        "card": "#FFFFFF"
+      }
+    }
+  },
+  "typography": {
+    "targetBrandSans": "Manrope",
+    "inferredCardSans": "Inter",
+    "targetMono": "JetBrains Mono",
+    "activeRenderFamilies": {
+      "sans": "'Manrope', 'Inter', system-ui, -apple-system, sans-serif",
+      "mono": "'JetBrains Mono', ui-monospace, monospace",
+      "fontFaceAliasStatus": "PENDIENTE: incorporar archivos locales .woff2 estáticos de Manrope (400..800) en assets/fonts/. En Hito 0B se enlazan localmente Inter-400/700.woff2 (tipografía inferida de tarjetas) y JetBrainsMono-400/700.woff2 para garantizar 0 peticiones de red."
+    },
+    "weights": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "extrabold": 800
+    },
+    "hierarchies": {
+      "vertical1080x1920": {
+        "heroTitle": { "fontSizePx": 86, "lineHeight": 1.04, "letterSpacing": "-0.04em", "weight": 700 },
+        "sectionTitle": { "fontSizePx": 72, "lineHeight": 1.06, "letterSpacing": "-0.035em", "weight": 700 },
+        "cardTitle": { "fontSizePx": 38, "lineHeight": 1.2, "letterSpacing": "-0.02em", "weight": 700 },
+        "body": { "fontSizePx": 30, "lineHeight": 1.45, "letterSpacing": "0em", "weight": 400 },
+        "eyebrow": { "fontSizePx": 28, "lineHeight": 1.3, "letterSpacing": "0.16em", "weight": 700, "transform": "uppercase" },
+        "code": { "fontSizePx": 28, "lineHeight": 1.55, "letterSpacing": "0em", "weight": 400 },
+        "outroWordmark": { "fontSizePx": 84, "lineHeight": 1.0, "letterSpacing": "0.06em", "weight": 700, "transform": "uppercase" },
+        "outroSlogan": { "fontSizePx": 40, "lineHeight": 1.25, "letterSpacing": "0.06em", "weight": 700, "transform": "uppercase" }
+      },
+      "webReference": {
+        "heroH1Desktop": "clamp(48px, 5.2vw, 80px)",
+        "sectionH2Desktop": "clamp(32px, 3.3vw, 48px)",
+        "eyebrow": "12px (0.15em-0.25em tracking)"
+      }
+    }
+  },
+  "geometry": {
+    "isotype": {
+      "sourceFile": "assets/brand-source/logo.svg",
+      "viewBox": "0 0 580 590",
+      "aspectRatio": 0.9830508474576272,
+      "fillRule": "evenodd",
+      "pathBBox": { "x": 19, "y": 17, "width": 544, "height": 556 }
+    },
+    "radii": {
+      "pillPx": 9999,
+      "modalPx": 24,
+      "panelPx": 16,
+      "controlPx": 12,
+      "dividerPx": 3
+    },
+    "strokes": {
+      "hairlinePx": 1,
+      "orbitCardPx": 1.3,
+      "orbitVideoMinPx": 2.5,
+      "accentPx": 2,
+      "displayLimeOnDarkPx": 2,
+      "displayLimeOnLightPx": 2.5,
+      "asteriskStrokeWidth": 3
+    },
+    "provisionalLockup": {
+      "status": "provisional",
+      "isOfficialLogo": false,
+      "components": ["isotype", "wordmark", "slogan"],
+      "cardUnitD": 166.8,
+      "ratiosRelativeToD": {
+        "isotypeHeight": 1.0,
+        "isotypeWidth": 0.965,
+        "orbitalRingDiameter": 1.431,
+        "orbitalRingRadius": 0.7155,
+        "textHorizontalGapFromIsotypeRight": 0.504,
+        "wordmarkFontSizeApprox": 0.395,
+        "dividerBarWidth": 1.259,
+        "dividerBarHeight": 0.042,
+        "dividerBarRadius": 0.018,
+        "sloganFontSizeApprox": 0.155
+      },
+      "compactHeaderRatiosRelativeToU": {
+        "isotypeSize": 1.0,
+        "gap": 0.333,
+        "wordmarkFontSize": 0.5,
+        "wordmarkLetterSpacing": "0.12em"
+      }
+    }
+  },
+  "safeZones": {
+    "vertical9x16": {
+      "width": 1080,
+      "height": 1920,
+      "topPx": 288,
+      "bottomReservedFromBottomPx": 672,
+      "recommendedContentBox": {
+        "xMin": 120,
+        "xMax": 888,
+        "yMin": 288,
+        "yMax": 1248,
+        "narrowXMaxBelowY840": 780
+      },
+      "note": "Coincide exactamente con la zona segura universal TikTok/Reels/Shorts validada por HyperFrames (x: 120..888, y: 288..1248, y <=780 bajo y=840)."
+    }
+  },
+  "motion": {
+    "curves": {
+      "nobleReveal": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "pagerCover": "cubic-bezier(0.76, 0, 0.24, 1)",
+      "structureSettle": "cubic-bezier(0.22, 0.61, 0.36, 1)",
+      "dialogueSpring": "cubic-bezier(0.22, 0.8, 0.3, 1.12)"
+    },
+    "orbitalSpeedsVideo": {
+      "outerPeriodSec": 18,
+      "innerPeriodSec": 27,
+      "ratio": "2:3 counter-rotating",
+      "asteriskSelfPeriodSec": 12
+    },
+    "pagerCoverVideoVertical": {
+      "durationSec": 0.75,
+      "outgoingParallax": "-30%",
+      "outgoingBrightnessMin": 0.88
+    },
+    "consoleLineStaggerSec": 0.08
+  }
+}

@@ -1,0 +1,162 @@
+/* Socratech Brand UI — Shared component styles grounded in tokens.css */
+@import "../tokens/tokens.css";
+
+.st-brand-root {
+  font-family: var(--st-font-sans);
+  color: var(--st-ink-text);
+  background-color: var(--st-bg-light);
+}
+
+.st-theme-dark {
+  background-color: var(--st-ink);
+  color: var(--st-ink-fg);
+}
+
+.st-theme-light {
+  background-color: var(--st-bg-light);
+  color: var(--st-ink-text);
+}
+
+.st-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.st-theme-dark .st-eyebrow {
+  color: var(--st-ink-muted);
+}
+
+.st-theme-light .st-eyebrow {
+  color: var(--st-muted-light);
+}
+
+.st-display-lime-on-dark {
+  color: var(--st-accent);
+  -webkit-text-stroke: 2px var(--st-accent-stroke-on-dark);
+  paint-order: stroke fill;
+}
+
+.st-accent-pill-on-light {
+  display: inline-block;
+  background-color: var(--st-accent);
+  color: var(--st-accent-fg);
+  border: 1.5px solid var(--st-ink-stroke);
+  border-radius: 8px;
+  padding: 2px 10px;
+}
+
+.st-divider-pill {
+  height: 7px;
+  border-radius: var(--st-radius-divider);
+  background-color: var(--st-accent);
+}
+
+.st-divider-hairline {
+  height: 1px;
+  width: 100%;
+}
+
+.st-theme-dark .st-divider-hairline {
+  background-color: var(--st-ink-border);
+}
+
+.st-theme-light .st-divider-hairline {
+  background-color: var(--st-border-light);
+}
+
+.st-card {
+  border-radius: var(--st-radius-panel);
+  border: 1px solid var(--st-border-light);
+  background-color: var(--st-surface-card);
+  color: var(--st-ink-text);
+}
+
+.st-card-dark {
+  border-radius: var(--st-radius-panel);
+  border: 1px solid var(--st-ink-border);
+  background-color: rgba(16, 26, 57, 0.92);
+  color: var(--st-ink-fg);
+}
+
+.st-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--st-radius-pill);
+  font-family: var(--st-font-sans);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 0.15s var(--st-ease-noble-reveal), opacity 0.15s ease, background-color 0.15s ease;
+  border: 1.5px solid transparent;
+}
+
+.st-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.st-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.st-btn-primary {
+  background-color: var(--st-accent);
+  color: var(--st-accent-fg);
+  border-color: var(--st-ink-stroke);
+}
+
+.st-btn-secondary-dark {
+  background-color: transparent;
+  color: var(--st-ink-fg);
+  border-color: var(--st-ink-border);
+}
+
+.st-btn-secondary-light {
+  background-color: var(--st-ink);
+  color: var(--st-ink-fg);
+  border-color: var(--st-ink);
+}
+
+.st-console {
+  border-radius: var(--st-radius-panel);
+  border: 1px solid var(--st-ink-border);
+  background-color: var(--st-ink);
+  color: var(--st-ink-fg-pure);
+  font-family: var(--st-font-mono);
+  overflow: hidden;
+}
+
+.st-console-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--st-ink-border);
+  font-size: 12px;
+  color: var(--st-ink-muted);
+}
+
+.st-console-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.st-console-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--st-ink-border);
+}
+
+.st-console-dot--accent {
+  background-color: var(--st-accent);
+}

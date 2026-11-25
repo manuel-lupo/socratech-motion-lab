@@ -1,0 +1,134 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id               String               @id @default(cuid())
+  slug             String               @unique
+  title            String
+  description      String?
+  editorialContext String?
+  editorialStage   String               @default("TOPIC")
+  activeScriptId   String?
+  approvedScriptId String?
+  status           String               @default("PLANNING")
+  workspacePath    String
+  createdAt        DateTime             @default(now())
+  updatedAt        DateTime             @updatedAt
+  tasks            Task[]
+  scriptDrafts     ScriptDraft[]
+  deliverables     ProjectDeliverable[]
+  eventLogs        EventLog[]
+}
+
+model Task {
+  id            String     @id @default(cuid())
+  projectId     String
+  project       Project    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  type          String
+  title         String
+  prompt        String
+  runtime       String
+  status        String     @default("QUEUED")
+  priority      Int        @default(0)
+  attempts      Int        @default(0)
+  lockedBy      String?
+  startedAt     DateTime?
+  completedAt   DateTime?
+  interruptedAt DateTime?
+  error         String?
+  resultJson    String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  agentRuns     AgentRun[]
+  eventLogs     EventLog[]
+
+  @@index([projectId, status])
+  @@index([status, priority, createdAt])
+}
+
+model AgentRun {
+  id                   String    @id @default(cuid())
+  taskId               String
+  task                 Task      @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  runtime              String
+  command              String
+  argsJson             String
+  exitCode             Int?
+  stdout               String    @default("")
+  stderr               String    @default("")
+  structuredOutputJson String?
+  startedAt            DateTime  @default(now())
+  finishedAt           DateTime?
+  status               String    @default("RUNNING")
+
+  @@index([taskId])
+}
+
+model EventLog {
+  id          String   @id @default(cuid())
+  projectId   String?
+  project     Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  taskId      String?
+  task        Task?    @relation(fields: [taskId], references: [id], onDelete: SetNull)
+  eventType   String
+  payloadJson String
+  createdAt   DateTime @default(now())
+
+  @@index([projectId, createdAt])
+  @@index([taskId, createdAt])
+}
+
+model KnowledgeEntry {
+  id        String   @id @default(cuid())
+  category  String
+  title     String
+  content   String
+  tagsJson  String   @default("[]")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ScriptDraft {
+  id                String   @id @default(cuid())
+  projectId         String
+  project           Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  variant           String
+  version           Int      @default(1)
+  title             String
+  format            String   @default("16:9")
+  estimatedDuration String?
+  description       String?
+  filePath          String?
+  body              String
+  status            String   @default("DRAFT")
+  revisionNotes     String?
+  isSelected        Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([projectId, variant])
+  @@index([projectId, filePath])
+}
+
+model ProjectDeliverable {
+  id        String   @id @default(cuid())
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  stage     String
+  kind      String
+  title     String
+  filePath  String
+  summary   String?
+  status    String   @default("READY")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([projectId, filePath])
+  @@index([projectId, stage])
+}

@@ -1,0 +1,135 @@
+/* ARCHIVO GENERADO AUTOMATICAMENTE POR video-generation/scripts/sync-brand-assets.mjs */
+/* NO EDITAR MANUALMENTE AQUI — Editar shared/brand/tokens/tokens.css y volver a sincronizar. */
+/**
+ * Socratech Motion Lab — Tokens CSS Oficiales
+ * Fuente única de verdad documental: docs/brand/BRAND_TOKENS.md
+ * Definición estructurada: shared/brand/tokens/brand-tokens.json
+ *
+ * IMPORTANTE: La paleta por defecto (:root) corresponde a las tarjetas comerciales
+ * oficiales (#101A39, #121D42, #10204D, #FBFBF4, #CEEF62, #949EB9, #56607B, #FFFFFF).
+ * La paleta original del sitio web queda confinada al tema [data-brand-theme="web-legacy"].
+ */
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../assets/fonts/Inter-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../assets/fonts/Inter-700.woff2") format("woff2");
+  font-weight: 500 900;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-700.woff2") format("woff2");
+  font-weight: 500 900;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../assets/fonts/JetBrainsMono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../assets/fonts/JetBrainsMono-700.woff2") format("woff2");
+  font-weight: 500 900;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  /* Tipografía oficial (enlaces locales 100% offline; ver status Manrope woff2 en README) */
+  --st-font-sans: "Manrope", "Inter", system-ui, -apple-system, sans-serif;
+  --st-font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Paleta Oficial Prioritaria — Tarjetas Comerciales */
+  --st-ink: #101a39;
+  --st-ink-text: #121d42;
+  --st-ink-stroke: #10204d;
+  --st-ink-fg: #fbfbf4;
+  --st-ink-fg-pure: #ffffff;
+  --st-ink-muted: #949eb9;
+  --st-ink-border: rgba(148, 158, 185, 0.28);
+
+  /* Opacidades orbitales oficiales sobre oscuro (#101A39) */
+  --st-orbit-dark-outer: rgba(206, 239, 98, 0.18);
+  --st-orbit-dark-inner: rgba(206, 239, 98, 0.12);
+  --st-orbit-dark-bottom: rgba(206, 239, 98, 0.13);
+
+  /* Superficies y tintas claras */
+  --st-bg-light: #fbfbf4;
+  --st-surface-card: #ffffff;
+  --st-muted-light: #56607b;
+  --st-border-light: rgba(16, 26, 57, 0.14);
+
+  /* Opacidades orbitales oficiales sobre claro (#FBFBF4) */
+  --st-orbit-light-outer: rgba(16, 26, 57, 0.09);
+  --st-orbit-light-inner: rgba(16, 26, 57, 0.08);
+  --st-orbit-light-bottom: rgba(16, 26, 57, 0.10);
+
+  /* Acento Eléctrico Oficial y Contornos de Contraste */
+  --st-accent: #ceef62;
+  --st-accent-fg: #101a39;
+  --st-accent-stroke-on-dark: #56607b;
+  --st-accent-stroke-on-dark-alt: #949eb9;
+  --st-accent-stroke-on-light: #10204d;
+  --st-watermark-opacity: 0.075;
+  --st-destructive: #c0392b;
+
+  /* Radios y Trazos */
+  --st-radius-pill: 9999px;
+  --st-radius-modal: 24px;
+  --st-radius-panel: 16px;
+  --st-radius-control: 12px;
+  --st-radius-divider: 3px;
+  --st-stroke-hairline: 1px;
+  --st-stroke-orbit: 1.3px;
+  --st-stroke-orbit-video: 2.5px;
+  --st-stroke-accent: 2px;
+
+  /* Curvas maestras de movimiento */
+  --st-ease-noble-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+  --st-ease-pager-cover: cubic-bezier(0.76, 0, 0.24, 1);
+  --st-ease-structure-settle: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --st-ease-dialogue-spring: cubic-bezier(0.22, 0.8, 0.3, 1.12);
+}
+
+[data-brand-theme="web-legacy"] {
+  /* Paleta Legacy del Sitio Web (Exclusivamente referencia histórica / alternativa) */
+  --st-bg-light: #f4f5f0;
+  --st-bg-light-alt: #e4e9f5;
+  --st-ink: #071f64;
+  --st-ink-text: #071f64;
+  --st-ink-stroke: #071f64;
+  --st-ink-fg: #f4f5f0;
+  --st-ink-fg-pure: #ffffff;
+  --st-ink-border: #24387a;
+  --st-ink-muted: #9fb0dd;
+  --st-ink-quote: #e3e9f8;
+  --st-border-light: #cfd6e8;
+  --st-muted-light: #4b5a86;
+  --st-accent: #218487;
+  --st-accent-dark: #0e6668;
+  --st-accent-fg: #ffffff;
+}

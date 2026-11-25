@@ -1,0 +1,12 @@
+{
+  "name": "project",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.9.91 preview",
+    "lint": "npx --yes hyperframes@0.9.91 lint",
+    "check": "npx --yes hyperframes@0.9.91 check",
+    "snapshot": "npx --yes hyperframes@0.9.91 snapshot",
+    "render": "npx --yes hyperframes@0.9.91 render"
+  }
+}

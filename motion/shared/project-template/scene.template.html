@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="../styles/brand-system.css" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background-color: var(--st-ink);
+        }
+        .st-scene-placeholder {
+          position: absolute;
+          left: 124px;
+          top: 340px;
+          width: 646px;
+          color: var(--st-ink-fg);
+          font-family: var(--st-font-sans);
+        }
+        .st-scene-placeholder-title {
+          font-size: 44px;
+          font-weight: 700;
+          line-height: 1.15;
+          margin: 0 0 16px 0;
+        }
+        .st-scene-placeholder-meta {
+          font-family: var(--st-font-mono);
+          font-size: 29px;
+          line-height: 1.4;
+          color: var(--st-accent);
+          margin: 0;
+        }
+      </style>
+
+      <div id="root" data-composition-id="{{SCENE_ID}}" data-width="{{WIDTH}}" data-height="{{HEIGHT}}">
+        <div class="st-scene-placeholder">
+          <h1 id="{{SCENE_ID}}-title" class="st-scene-placeholder-title clip" data-start="0" data-duration="{{SCENE_DURATION}}">
+            {{SCENE_ID}} · Sistema {{SCENE_SYSTEM}}
+          </h1>
+          <p id="{{SCENE_ID}}-meta" class="st-scene-placeholder-meta clip" data-start="0.2" data-duration="{{SCENE_META_DURATION}}">
+            {{NARRATIVE_FUNCTION}}
+          </p>
+        </div>
+      </div>
+
+      <script>
+        (function buildScene() {
+          const timing = window.__ST_TIMING?.scenes?.["{{SCENE_ID}}"];
+          const dur = timing ? timing.duration : {{SCENE_DURATION}};
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo(
+            "#{{SCENE_ID}}-title",
+            { opacity: 0.7, y: 18 },
+            { opacity: 1, y: 0, duration: Math.min(0.45, dur * 0.3), ease: "power2.out" },
+            0
+          );
+          tl.fromTo(
+            "#{{SCENE_ID}}-meta",
+            { opacity: 0.5, y: 12 },
+            { opacity: 1, y: 0, duration: Math.min(0.45, dur * 0.3), ease: "power2.out" },
+            0.2
+          );
+          window.__timelines = window.__timelines || {};
+          window.__timelines["{{SCENE_ID}}"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

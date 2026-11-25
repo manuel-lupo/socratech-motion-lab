@@ -1,0 +1,88 @@
+<!doctype html>
+<html
+  lang="es"
+  data-resolution="portrait"
+  data-composition-variables='[
+    {"id":"brandName","type":"string","label":"Wordmark provisional","default":"SOCRATECH"},
+    {"id":"sloganLine1","type":"string","label":"Eslogan linea 1","default":"ENTENDER PRIMERO."},
+    {"id":"sloganLine2","type":"string","label":"Eslogan linea 2","default":"RESOLVER MEJOR."},
+    {"id":"provisionalNote","type":"string","label":"Etiqueta de lockup provisional","default":"LOCKUP PROVISIONAL · HITO 0B"}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>SocratechBrandShowcase — Socratech Motion Design System</title>
+    <link rel="stylesheet" href="styles/tokens.css" />
+    <link rel="stylesheet" href="styles/brand-system.css" />
+    <script src="vendor/gsap/gsap.min.js"></script>
+    <script src="vendor/gsap/CustomEase.min.js"></script>
+    <script src="components/components-library.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background-color: var(--st-ink);
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background-color: var(--st-ink);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="SocratechBrandShowcase"
+      data-start="0"
+      data-duration="15"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div
+        id="scene-01-editorial-dark"
+        data-composition-id="scene-01-editorial-dark"
+        data-composition-src="compositions/scene-01-editorial-dark.html"
+        data-start="0"
+        data-duration="5"
+        data-track-index="0"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="scene-02-technical-light"
+        data-composition-id="scene-02-technical-light"
+        data-composition-src="compositions/scene-02-technical-light.html"
+        data-start="5"
+        data-duration="5"
+        data-track-index="0"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="scene-03-brand-outro"
+        data-composition-id="scene-03-brand-outro"
+        data-composition-src="compositions/scene-03-brand-outro.html"
+        data-start="10"
+        data-duration="5"
+        data-track-index="0"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["SocratechBrandShowcase"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>
