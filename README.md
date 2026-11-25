@@ -24,10 +24,21 @@ socratech-motion-lab/
 ├── assets/                  # Originales inmutables (brand-source, fonts, references)
 ├── docs/                    # Documentación de marca migrada, arquitectura y producción
 ├── workspaces/              # Workspaces aislados por proyecto (ignorado en Git)
+├── start.sh                 # Script de inicio rápido (NVM + Prisma + API + Web)
 └── docker-compose.yml
 ```
 
 ## Ejecución local (sin Docker)
+
+### Inicio rápido (recomendado)
+
+```bash
+./start.sh
+```
+
+El script activa Node `24.22.3` vía NVM, prepara `apps/api/.env` si no existe, compila los paquetes compartidos, inicializa SQLite/Prisma si falta `dev.db` y levanta backend y frontend en paralelo (`Ctrl+C` detiene ambos).
+
+### Paso a paso manual
 
 ```bash
 # 1. Activar Node 24.22.3
